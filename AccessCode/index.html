@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cyber Login</title>
+    <meta name="description" content="Cyber-themed login page">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              techno: ['"Share Tech Mono"', 'monospace']
+            },
+            colors: {
+              neon: {
+                cyan: '#00E6FF',
+                purple: '#A855F7'
+              }
+            },
+            boxShadow: {
+              'neon-cyan': '0 0 15px rgba(0, 230, 255, 0.6), 0 0 30px rgba(0, 230, 255, 0.25)',
+              'neon-purple': '0 0 15px rgba(168, 85, 247, 0.6), 0 0 30px rgba(168, 85, 247, 0.25)'
+            },
+            keyframes: {
+              scan: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' }
+              }
+            },
+            animation: {
+              scan: 'scan 6s linear infinite'
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="min-h-screen antialiased text-slate-100 bg-black relative font-techno">
+    <!-- Background image layer -->
+    <div class="absolute inset-0 -z-10 bg-black bg-cover bg-center" style="background-image: url('./pageBG.gif');"></div>
+
+    <!-- Darkening + gradient glow overlays -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+    <div class="pointer-events-none absolute inset-0 -z-10 opacity-60" style="background: radial-gradient(60% 60% at 50% 40%, rgba(0,230,255,0.18) 0%, rgba(0,0,0,0) 60%), radial-gradient(40% 40% at 70% 70%, rgba(168,85,247,0.16) 0%, rgba(0,0,0,0) 60%);"></div>
+
+    <!-- Subtle grid -->
+    <div class="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(56,189,248,0.15)_1px,transparent_1px)] [background-size:24px_24px] [background-position:0px_0px]"></div>
+
+    <!-- Scanning line effect -->
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-1/2 -z-10 bg-gradient-to-b from-neon-cyan/20 via-neon-cyan/0 to-transparent blur-sm animate-scan"></div>
+
+    <!-- Header actions -->
+    <div class="fixed top-4 left-4 z-20">
+      <button onclick="history.back()" class="group inline-flex items-center gap-2 rounded-md border border-cyan-400/40 bg-black/30 px-3 py-2 text-sm font-semibold text-cyan-200 backdrop-blur hover:border-cyan-300/80 hover:text-cyan-100 hover:shadow-neon-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+          <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06L5.81 10.25H20.25a.75.75 0 010 1.5H5.81l5.22 5.22a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0z" clip-rule="evenodd" />
+        </svg>
+        <span>Home</span>
+      </button>
+    </div>
+
+    <div class="fixed top-4 right-4 z-20">
+      <div class="flex items-center gap-2 rounded-md border border-fuchsia-400/30 bg-black/30 px-3 py-2 backdrop-blur">
+        <span class="mr-1 text-xs font-semibold tracking-wider text-fuchsia-200">Contact&nbsp;us</span>
+        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Contact on Telegram" class="rounded-full border border-cyan-400/40 p-2 hover:border-cyan-300/80 hover:shadow-neon-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70">
+          <img src="./telegram-icon.svg" alt="Telegram" class="h-4 w-4" />
+        </a>
+        <a href="https://discord.com/invite/" target="_blank" rel="noopener" aria-label="Contact on Discord" class="rounded-full border border-fuchsia-400/40 p-2 hover:border-fuchsia-300/80 hover:shadow-neon-purple focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/70">
+          <img src="./discord%20-icon.svg" alt="Discord" class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="relative z-10 flex min-h-screen items-center justify-center p-4">
+      <section class="w-full max-w-md rounded-xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur md:p-8">
+        <div class="mb-6 text-center">
+          <h1 class="text-2xl font-bold tracking-widest text-cyan-200 drop-shadow-[0_0_12px_rgba(0,230,255,0.35)]">ACCESS PORTAL</h1>
+          <p class="mt-1 text-xs uppercase tracking-[0.35em] text-fuchsia-200/90"></p>
+        </div>
+
+        <form class="space-y-4" action="#" method="post" autocomplete="on">
+          <div>
+            <label for="password" class="mb-2 block text-sm font-semibold tracking-wide text-slate-200">Invitation Code</label>
+            <div class="relative">
+              <input id="password" name="password" type="text" required autocomplete="one-time-code" placeholder="Enter your access key" class="w-full rounded-md border border-cyan-400/30 bg-black/40 px-4 py-3 text-slate-100 placeholder-cyan-200/40 outline-none transition focus:border-cyan-300/80 focus:shadow-neon-cyan" />
+              <div class="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-white/5"></div>
+            </div>
+          </div>
+
+          <button type="submit" class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-md border border-fuchsia-400/40 bg-gradient-to-r from-fuchsia-600/40 to-cyan-600/40 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-lg transition hover:from-fuchsia-600/60 hover:to-cyan-600/60 hover:shadow-[0_0_18px_rgba(168,85,247,0.45),0_0_24px_rgba(0,230,255,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/70">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+              <path fill-rule="evenodd" d="M4.5 12a.75.75 0 01.75-.75h10.69l-3.22-3.22a.75.75 0 111.06-1.06l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 11-1.06-1.06l3.22-3.22H5.25A.75.75 0 014.5 12z" clip-rule="evenodd" />
+            </svg>
+            Confirm
+          </button>
+        </form>
+
+        <!-- Decorative status line -->
+        <div class="mt-6 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
+        <div class="mt-2 flex items-center justify-center gap-2 text-[10px] tracking-widest text-cyan-300/70">
+          <span class="h-2 w-2 animate-pulse rounded-full bg-cyan-400/80 shadow-[0_0_8px_rgba(0,230,255,0.8)]"></span>
+          SECURE CHANNEL READY
+        </div>
+      </section>
+    </main>
+  </body>
+  
+</html>
+
+
